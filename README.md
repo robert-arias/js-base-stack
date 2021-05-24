@@ -7,10 +7,11 @@ This is the base stack for a JavaScript (js) full-stack application. To hasten d
 The full-stack consists of:
 - Frontend
 - Backend
+- Reverse proxy
 
-> For installation purposes, it will be assumed that you're on the root project for each step.
-
-**Note**: *It's recommended to use NVM to use and switch to the correct NodeJS version, and to automatically detect it*
+**Notes**:
+> - For installation purposes, it will be assumed that you're on the root project for each step.
+> - It's recommended to use NVM to use and switch to the correct NodeJS version, and to automatically detect it
 
 ### Backend
 The backend consists of the API and the database.
@@ -34,3 +35,4 @@ Follow the next steps to correctly set it up.
     POSTGRES_PASSWORD=password
     POSTGRES_DB=database
     ```
+- Save the file
