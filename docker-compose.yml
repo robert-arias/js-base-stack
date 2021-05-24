@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+    api:
+        image: node:14.17.0-alpine
+        working_dir: /api
+        volumes:
+            - ./api:/api
+        command: npm run start
+        ports:
+            - 3000:3000
+        networks:
+            - backend
+        depends_on:
+            - database
+
+    database:
+        image: postgres:alpine
+        volumes:
+            - cross_posting_db:/var/lib/postgresql/data/
+        ports:
+            - 5432:5432
+        networks:
+            - backend
+        env_file:
+            - ./postgresql/.env
+
+
+volumes:
+    cross_posting_db: {}
+
+networks:
+    backend:
