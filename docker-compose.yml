@@ -17,7 +17,7 @@ services:
     database:
         image: postgres:alpine
         volumes:
-            - cross_posting_db:/var/lib/postgresql/data/
+            - base_db:/var/lib/postgresql/data/
         ports:
             - 5432:5432
         networks:
@@ -25,9 +25,19 @@ services:
         env_file:
             - ./postgresql/.env
 
+    nginx:
+        image: nginx:alpine
+        volumes:
+            - "./nginx/default.conf:/etc/nginx/conf.d/default.conf"
+        ports:
+            - 80:80
+        networks:
+            - backend
+        depends_on:
+            - api
 
 volumes:
-    cross_posting_db: {}
+    base_db: {}
 
 networks:
     backend:
