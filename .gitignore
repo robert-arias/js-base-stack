@@ -40,6 +40,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
 
 # TypeScript v1 declaration files
 typings/
@@ -72,6 +74,20 @@ typings/
 .env
 .env.test
 
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# testing
+/coverage
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
@@ -81,6 +97,9 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
+
+# production
+/build
 
 # Gatsby files
 .cache/
