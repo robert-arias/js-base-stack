@@ -1,6 +1,20 @@
 version: "3.7"
 
 services:
+
+    app:
+        image: node:14.17.0-alpine
+        working_dir: /app
+        volumes:
+            - ./app:/app
+        command: npm run start
+        ports:
+            - 3000:3000
+        networks:
+            - backend
+        depends_on:
+            - api
+
     api:
         image: node:14.17.0-alpine
         working_dir: /api
@@ -8,7 +22,7 @@ services:
             - ./api:/api
         command: npm run start
         ports:
-            - 3000:3000
+            - 8000:8000
         networks:
             - backend
         depends_on:
@@ -28,7 +42,7 @@ services:
     nginx:
         image: nginx:alpine
         volumes:
-            - "./nginx/default.conf:/etc/nginx/conf.d/default.conf"
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
         ports:
             - 80:80
         networks:
