@@ -19,17 +19,28 @@ All the stack is containerized to easen development. No custom images are used.
 
 **Disclaimer**
 > The `docker-compose` configuration is for *local development ONLY*.
+
+### Frontend
+The frontend consists of a ReactJS application.
+
+#### ReactJS
+For the application interface, `ReactJS` is used to build all the User Interface (UI), and send the users request to the backend.
+Follow the next steps to correctly set it up.
+
+- Go to `./app`
+- Run `npm i`
+
 ### Backend
 The backend consists of the API and the database.
 
-### API
+#### API
 For the API, `Express` will be used to handle build the endpoints, handle the authentication and authorization.
 Follow the next steps to correctly set it up.
 
 - Go to `./api`
 - Run `npm i`
 
-#### Database
+##### Database
 For the database, `PostgreSQL` is used to store all the application data.
 Follow the next steps to correctly set it up.
 
