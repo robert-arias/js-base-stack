@@ -5,14 +5,20 @@ This is the base stack for a JavaScript (js) full-stack application. To hasten d
 
 ## Installation steps
 The full-stack consists of:
+- Docker
 - Frontend
 - Backend
 - Reverse proxy
 
 **Notes**:
 > - For installation purposes, it will be assumed that you're on the root project for each step.
-> - It's recommended to use NVM to use and switch to the correct NodeJS version, and to automatically detect it
+> - It's recommended to use NVM to switch and automatically detect the correct NodeJS version.
 
+### Docker
+All the stack is containerized to easen development. No custom images are used.
+
+**Disclaimer**
+> The `docker-compose` configuration is for *local development ONLY*.
 ### Backend
 The backend consists of the API and the database.
 
@@ -23,7 +29,7 @@ Follow the next steps to correctly set it up.
 - Go to `./api`
 - Run `npm i`
 
-### Database
+#### Database
 For the database, `PostgreSQL` is used to store all the application data.
 Follow the next steps to correctly set it up.
 
@@ -36,3 +42,9 @@ Follow the next steps to correctly set it up.
     POSTGRES_DB=database
     ```
 - Save the file
+
+### Reverse Proxy
+The server used to proxy request is `NGINX`.
+
+**Disclaimer**
+> The `default.conf` configuration is for *local development ONLY*.
