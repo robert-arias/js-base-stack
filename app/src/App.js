@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { apiRequest } from './services/api/apiService';
 
 function App() {
+  const [message, setMessage] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let _message = await apiRequest();
+      if (_message) {
+        console.log(_message);
+        setMessage(_message.data.message);
+      } else {
+        setMessage('There has been an error with the backend connection');
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      { message && <div> { message } </div>  }
     </div>
   );
 }
