@@ -1,5 +1,6 @@
 import createError from 'http-errors';
 import express from 'express';
+import cors from 'cors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
@@ -10,6 +11,7 @@ import indexRouter from './routes/index';
 const app = express();
 const __dirname = dirname(import.meta.url);
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
